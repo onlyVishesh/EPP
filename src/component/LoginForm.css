@@ -4,16 +4,17 @@
 }
 
 body {
-
-  background-color: #1E1E1E;
+  background-color: #1e1e1e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 
 .form-model {
   position: relative;
   width: 450px;
   height: auto;
-  margin-top: 6vh;
+  margin-top: 5vh;
   left: 50%;
   transform: translateX(-50%);
   background: #fff;
@@ -82,7 +83,7 @@ body {
   width: 50%;
   float: left;
   padding: 1.5em;
-  margin-bottom: 1.5em;
+  margin-bottom: 0.5em;
   border: none;
   transition: 0.2s;
   font-size: 1.1em;
@@ -127,12 +128,12 @@ body {
 #login-form button,
 #signup-form button {
   width: 100%;
-  height:auto;
+  height: auto;
   padding: 0.6em;
   margin: 0;
   margin-top: 0.5em;
   text-align: center;
-  display: flex;  
+  display: flex;
   align-items: center;
   justify-content: center;
 }

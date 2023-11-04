@@ -6,7 +6,6 @@ import "react-toastify/dist/ReactToastify.css";
 import "./LoginForm.css";
 import { useNavigate } from "react-router-dom";
 
-
 function LoginForm() {
   const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
@@ -26,7 +25,7 @@ function LoginForm() {
 
   const toggleLogin = () => {
     setIsLogin(true);
-    setResetForm(true); 
+    setResetForm(true);
   };
 
   const handleInputChange = (e) => {
@@ -79,7 +78,7 @@ function LoginForm() {
       password: "",
       confirmPassword: "",
     });
-    setResetForm(true); 
+    setResetForm(true);
     toast.info("Logged out successfully");
   };
 
@@ -89,115 +88,124 @@ function LoginForm() {
 
   return (
     <div>
-   
-    <div className="form-model">
-      <div className="close-login" onClick={handleModelClose}>
-        <FontAwesomeIcon icon={faTimes} style={{ color: "#fff" }} size="lg" />
-      </div>
-      <ToastContainer />
-      {loggedIn ? (
-        <div>
-          <p>You are logged in as {formData.email}</p>
-          <button onClick={handleLogout}>Logout</button>
+      <div className="form-model">
+        <div className="close-login" onClick={handleModelClose}>
+          <FontAwesomeIcon icon={faTimes} style={{ color: "#fff" }} size="lg" />
         </div>
-      ) : (
-        <>
-          <div className="form-toggle">
-            <button
-              id="login-toggle"
-              onClick={toggleLogin}
-              style={{
-                backgroundColor: isLogin ? "#3387e8" : "#fff",
-                color: isLogin ? "#fff" : "#222",
-              }}
-            >
-              Log In
-            </button>
-            <button
-              id="signup-toggle"
-              onClick={toggleSignup}
-              style={{
-                backgroundColor: isLogin ? "#fff" : "#3387e8",
-                color: isLogin ? "#222" : "#fff",
-              }}
-            >
-              Sign Up
-            </button>
+        <ToastContainer />
+        {loggedIn ? (
+          <div>
+            <p>You are logged in as {formData.email}</p>
+            <button onClick={handleLogout}>Logout</button>
           </div>
-
-          <div id="login-form" style={{ display: isLogin ? "block" : "none" }}>
-            <form>
-              <input
-                type="text"
-                name="email"
-                placeholder="Enter email or username"
-                value={formData.email}
-                onChange={handleInputChange}
-              />
-              <input
-                type="password"
-                name="password"
-                placeholder="Enter password"
-                value={formData.password}
-                onChange={handleInputChange}
-              />
-              <button type="button" className="btn login" onClick={handleLogin}>
-                Login
-              </button>
-              <p>
-                <a href="/">Forgotten account</a>
-              </p>
-              <hr />
-            </form>
-          </div>
-
-          <div id="signup-form" style={{ display: isLogin ? "none" : "block" }}>
-            <form>
-              <input
-                type="text"
-                name="name"
-                placeholder="Enter Your Name"
-                value={formData.name}
-                onChange={handleInputChange}
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Enter Your Email"
-                value={formData.email}
-                onChange={handleInputChange}
-              />
-              <input
-                type="password"
-                name="password"
-                placeholder="Your Password (min 8 characters)"
-                value={formData.password}
-                onChange={handleInputChange}
-              />
-              <input
-                type="password"
-                name="confirmPassword"
-                placeholder="Re-enter Password"
-                value={formData.confirmPassword}
-                onChange={handleInputChange}
-              />
+        ) : (
+          <>
+            <div className="form-toggle">
               <button
-                type="button"
-                className="btn signup"
-                onClick={handleSignup}
+                id="login-toggle"
+                onClick={toggleLogin}
+                style={{
+                  backgroundColor: isLogin ? "#3387e8" : "#fff",
+                  color: isLogin ? "#fff" : "#222",
+                }}
               >
-                Create Account
+                Log In
               </button>
-              <p>
-                Clicking <strong>Create Account</strong> means that you agree to
-                our <a href="/">terms of services</a>.
-              </p>
-              <hr />
-            </form>
-          </div>
-        </>
-      )}
-    </div>
+              <button
+                id="signup-toggle"
+                onClick={toggleSignup}
+                style={{
+                  backgroundColor: isLogin ? "#fff" : "#3387e8",
+                  color: isLogin ? "#222" : "#fff",
+                }}
+              >
+                Sign Up
+              </button>
+            </div>
+
+            <div
+              id="login-form"
+              style={{ display: isLogin ? "block" : "none" }}
+            >
+              <form>
+                <input
+                  type="text"
+                  name="email"
+                  placeholder="Enter email or username"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Enter password"
+                  value={formData.password}
+                  onChange={handleInputChange}
+                />
+                <button
+                  type="button"
+                  className="btn login"
+                  onClick={handleLogin}
+                >
+                  Login
+                </button>
+                <p>
+                  <a href="/">Forgotten account</a>
+                </p>
+                <hr />
+              </form>
+            </div>
+
+            <div
+              id="signup-form"
+              style={{ display: isLogin ? "none" : "block" }}
+            >
+              <form>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Enter Your Name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter Your Email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Your Password (min 8 characters)"
+                  value={formData.password}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="password"
+                  name="confirmPassword"
+                  placeholder="Re-enter Password"
+                  value={formData.confirmPassword}
+                  onChange={handleInputChange}
+                />
+                <button
+                  type="button"
+                  className="btn signup"
+                  onClick={handleSignup}
+                >
+                  Create Account
+                </button>
+                <p>
+                  Clicking <strong>Create Account</strong> means that you agree
+                  to our <a href="/">terms of services</a>.
+                </p>
+                <hr />
+              </form>
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 }
