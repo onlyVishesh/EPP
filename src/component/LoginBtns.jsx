@@ -7,7 +7,7 @@ const LoginBtns = () => {
       <Link to="/student-login">
         <button className="btn third">Student Login</button>
       </Link>
-      <Link to="/teacher-login">
+      <Link to="/faculty-login">
         <button className="btn third">Facility Login</button>
       </Link>
     </div>

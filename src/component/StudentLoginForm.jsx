@@ -3,10 +3,10 @@ import { ToastContainer, toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import "react-toastify/dist/ReactToastify.css";
-import "./LoginForm.css";
+import "./StudentLoginForm.css";
 import { useNavigate } from "react-router-dom";
 
-function LoginForm() {
+function StudentLoginForm() {
   const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
   const [loggedIn, setLoggedIn] = useState(false);
@@ -210,4 +210,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export default StudentLoginForm;
