@@ -8,7 +8,7 @@ const LoginBtns = () => {
         <button className="btn third">Student Login</button>
       </Link>
       <Link to="/faculty-login">
-        <button className="btn third">Facility Login</button>
+        <button className="btn third">Facilty Login</button>
       </Link>
     </div>
   );

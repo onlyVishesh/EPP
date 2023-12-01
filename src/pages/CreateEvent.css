@@ -1,0 +1,58 @@
+/* CreateEvent.css */
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: aliceblue;
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  color: aliceblue;
+  gap: 1rem;
+  width: 100%;
+}
+
+.form-fields label {
+  color: aliceblue;
+  display: flex;
+  gap: 1rem;
+  
+}
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.button {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.permission-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.input {
+  padding: 8px;
+  margin-bottom: 5px;
+}
+
+.add-permission-button {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}

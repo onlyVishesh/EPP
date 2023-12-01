@@ -3,10 +3,10 @@ import { ToastContainer, toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import "react-toastify/dist/ReactToastify.css";
-import "./FacultyLoginForm.css";
+import "./StudentLoginForm.css";
 import { useNavigate } from "react-router-dom";
 
-function FacultyLoginForm() {
+function StudentLoginForm() {
   const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
   const [loggedIn, setLoggedIn] = useState(false);
@@ -16,16 +16,12 @@ function FacultyLoginForm() {
     confirmPassword: "",
   });
 
-  const [resetForm, setResetForm] = useState(false);
-
   const toggleSignup = () => {
     setIsLogin(false);
-    setResetForm(true);
   };
 
   const toggleLogin = () => {
     setIsLogin(true);
-    setResetForm(true);
   };
 
   const handleInputChange = (e) => {
@@ -36,38 +32,53 @@ function FacultyLoginForm() {
     });
   };
 
-  const handleLogin = () => {
-    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  const apiUrl = "https://your-django-backend-url/api";
 
-    if (!emailPattern.test(formData.email)) {
-      toast.error("Invalid email format. Please enter a valid email address.");
-    } else if (formData.password.length < 8) {
-      toast.error("Password should be at least 8 characters long.");
-    } else {
-      if (
-        formData.email === "user@example.com" &&
-        formData.password === "password"
-      ) {
+  const handleLogin = async () => {
+    try {
+      const response = await fetch(`${apiUrl}/login/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+        credentials: "true",
+      });
+
+      if (response.ok) {
+        const data = await response.json();
         setLoggedIn(true);
         toast.success("Login successful");
       } else {
         toast.error("Invalid email or password. Please try again.");
       }
+    } catch (error) {
+      console.error("Login failed:", error);
+      toast.error("Login failed. Please try again.");
     }
   };
 
-  const handleSignup = () => {
-    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  const handleSignup = async () => {
+    try {
+      const response = await fetch(`${apiUrl}/signup/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+        credentials: "true",
+      });
 
-    if (!emailPattern.test(formData.email)) {
-      toast.error("Invalid email format. Please enter a valid email address.");
-    } else if (formData.password.length < 8) {
-      toast.error("Password should be at least 8 characters long.");
-    } else if (formData.password !== formData.confirmPassword) {
-      toast.error("Passwords do not match. Please re-enter your password.");
-    } else {
-      setLoggedIn(true);
-      toast.success("Account created successfully. You are now logged in.");
+      if (response.ok) {
+        const data = await response.json();
+        setLoggedIn(true);
+        toast.success("Account created successfully. You are now logged in.");
+      } else {
+        toast.error("Signup failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Signup failed:", error);
+      toast.error("Signup failed. Please try again.");
     }
   };
 
@@ -78,7 +89,6 @@ function FacultyLoginForm() {
       password: "",
       confirmPassword: "",
     });
-    setResetForm(true);
     toast.info("Logged out successfully");
   };
 
@@ -90,7 +100,7 @@ function FacultyLoginForm() {
     <div>
       <div className="form-model">
         <div className="close-login" onClick={handleModelClose}>
-          <FontAwesomeIcon icon={faTimes} style={{ color: "#fff" }} size="lg" />
+          <FontAwesomeIcon icon={faTimes} size="lg" />
         </div>
         <ToastContainer />
         {loggedIn ? (
@@ -210,4 +220,4 @@ function FacultyLoginForm() {
   );
 }
 
-export default FacultyLoginForm;
+export default StudentLoginForm;

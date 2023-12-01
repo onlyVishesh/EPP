@@ -1,18 +1,30 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import LoginBtns from "./component/LoginBtns";
-import FacultyLoginForm from "./component/FacultyLoginForm";
-import StudentLoginForm from "./component/StudentLoginForm";
+import './App.css'
+import {Outlet } from "react-router-dom";
+// src/index.js or src/App.js
+import '@fortawesome/fontawesome-free/css/all.css';
 
-function App() {
+
+
+export function App() {
+
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<LoginBtns />} />
-        <Route path="/student-login" element={<StudentLoginForm />} />
-        <Route path="/faculty-login" element={<FacultyLoginForm />} />
-      </Routes>
-    </Router>
-  );
+    <>
+      <Outlet/> 
+
+    </>
+  )
 }
 
-export default App;
+export function App1() {
+
+  return (
+    <>
+      <Outlet/> 
+    </>
+  )
+}
+
+
+
+
+

@@ -1,0 +1,40 @@
+/* Dashboard.css */
+.dashboard {
+  padding: 20px;
+  overflow: hidden;
+}
+.dashboard-heading {
+  color: #FFF;
+  text-align: center;
+}
+
+.dashboard-section {
+  margin-top: 20px;
+  width: 100%;
+  margin-left: 0%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.dashboard-section h2 {
+  
+}
+
+.event-container {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 80%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow-x: scroll;
+}
+
+.event-card {
+  background-color: #ddd;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  padding: 10px;
+  margin-right: 10px;
+  width: 300px;
+}
