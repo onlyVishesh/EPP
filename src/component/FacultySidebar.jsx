@@ -1,10 +1,10 @@
 // src/ProSidebar.js
-import { useState } from 'react';
-import {Outlet,Link } from "react-router-dom";
+import { useState } from "react";
+import { Outlet, Link } from "react-router-dom";
 
-import './Sidebar.css'; // Import your CSS file
+import "./Sidebar.css"; // Import your CSS file
 
-const Sidebar = () => {
+const FacultySidebar = () => {
   const [isSidebarToggled, setSidebarToggled] = useState(false);
 
   const handleSidebarToggle = () => {
@@ -13,22 +13,31 @@ const Sidebar = () => {
 
   const handleDropdownClick = (event) => {
     const dropdown = event.target.parentNode;
-    const isActive = dropdown.classList.contains('active');
+    const isActive = dropdown.classList.contains("active");
 
-    document.querySelectorAll('.sidebar-dropdown').forEach((item) => {
-      item.classList.remove('active');
-      item.querySelector('.sidebar-submenu').style.display = 'none';
+    document.querySelectorAll(".sidebar-dropdown").forEach((item) => {
+      item.classList.remove("active");
+      item.querySelector(".sidebar-submenu").style.display = "none";
     });
 
     if (!isActive) {
-      dropdown.classList.add('active');
-      dropdown.querySelector('.sidebar-submenu').style.display = 'block';
+      dropdown.classList.add("active");
+      dropdown.querySelector(".sidebar-submenu").style.display = "block";
     }
   };
 
   return (
-    <div className={`page-wrapper chiller-theme ${isSidebarToggled ? 'toggled' : ''}`}>
-      <a id="show-sidebar" className="btn btn-sm btn-dark" href="#" onClick={handleSidebarToggle}>
+    <div
+      className={`page-wrapper chiller-theme ${
+        isSidebarToggled ? "toggled" : ""
+      }`}
+    >
+      <a
+        id="show-sidebar"
+        className="btn btn-sm btn-dark"
+        href="#"
+        onClick={handleSidebarToggle}
+      >
         <i className="fas fa-bars"></i>
       </a>
 
@@ -41,14 +50,14 @@ const Sidebar = () => {
             </div>
           </div>
           <div className="sidebar-header">
-            <div className="user-pic" style={{ color: '#fff' }}>
+            <div className="user-pic" style={{ color: "#fff" }}>
               <i className="fa fa-user-circle fa-4x" aria-hidden="true"></i>
             </div>
             <div className="user-info">
               <span className="user-name">
                 <strong>Vishesh</strong>
               </span>
-              <span className="user-role">Administrator</span>
+              <span className="user-role">Club - GDSC</span>
               <span className="user-status">
                 <i className="fa fa-circle"></i> <span>Online</span>
               </span>
@@ -57,7 +66,11 @@ const Sidebar = () => {
           <div className="sidebar-search">
             <div>
               <div className="input-group">
-                <input type="text" className="form-control search-menu" placeholder="Search..." />
+                <input
+                  type="text"
+                  className="form-control search-menu"
+                  placeholder="Search..."
+                />
                 <div className="input-group-append">
                   <span className="input-group-text">
                     <i className="fa fa-search" aria-hidden="true"></i>
@@ -72,14 +85,18 @@ const Sidebar = () => {
                 <span>General</span>
               </li>
               <li className="sidebar-dropdown" onClick={handleDropdownClick}>
-                
-                  {/* <i className="fa fa-tachometer-alt"></i> */}
-                  <Link to="/student-home">Home</Link>
-                  {/* <span className="badge badge-pill badge-warning">New</span> */}
-                
+                {/* <i className="fa fa-tachometer-alt"></i> */}
+                <Link to="/faculty-home">Home</Link>
+                {/* <span className="badge badge-pill badge-warning">New</span> */}
               </li>
               <li className="sidebar-dropdown" onClick={handleDropdownClick}>
-                  <Link to="/student-home/event">Create Event</Link>
+                <Link to="/faculty-home/event">Create Event</Link>
+              </li>
+              <li className="sidebar-dropdown" onClick={handleDropdownClick}>
+                <Link to="/faculty-home/member">Add Member</Link>
+              </li>
+              <li className="sidebar-dropdown" onClick={handleDropdownClick}>
+                <Link to="/faculty-home/profile">Profile</Link>
               </li>
               {/* More list items and dropdowns can be added here */}
             </ul>
@@ -88,16 +105,20 @@ const Sidebar = () => {
         <div className="sidebar-footer">
           <a href="#">
             <i className="fa fa-bell"></i>
-            <span className="badge badge-pill badge-warning notification">3</span>
+            <span className="badge badge-pill badge-warning notification">
+              3
+            </span>
           </a>
           <a href="#">
             <i className="fa fa-envelope"></i>
-            <span className="badge badge-pill badge-success notification">7</span>
+            <span className="badge badge-pill badge-success notification">
+              7
+            </span>
           </a>
-          <a href="#">
+          <Link to="/faculty-home/profile">
             <i className="fa fa-cog"></i>
             <span className="badge-sonar"></span>
-          </a>
+            </Link>
           <a href="#">
             <i className="fa fa-power-off"></i>
           </a>
@@ -106,11 +127,11 @@ const Sidebar = () => {
 
       <main className="page-content">
         <div className="container-fluid">
-          <Outlet/>
+          <Outlet />
         </div>
       </main>
     </div>
   );
 };
 
-export default Sidebar;
+export default FacultySidebar;

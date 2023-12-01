@@ -7,9 +7,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginBtns from "./component/LoginBtns";
 import FacultyLoginForm from "./component/FacultyLoginForm";
 import StudentLoginForm from "./component/StudentLoginForm";
-import Sidebar from "./component/Sidebar.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import CreateEvent from "./pages/CreateEvent.jsx";
+import Member from "./pages/Member.jsx";
+import StudentSidebar from "./component/StudentSidebar.jsx";
+import FacultySidebar from "./component/FacultySidebar.jsx";
+import Profile from "./pages/Profile.jsx";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +34,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/student-home",
-        element: <Sidebar />,
+        element: <StudentSidebar />,
         children: [
           {
             path: "",
@@ -40,6 +43,32 @@ const router = createBrowserRouter([
           {
             path: "event",
             element: <CreateEvent/>,
+          },
+          {
+            path: "profile",
+            element: <Profile/>,
+          },
+        ],
+      },
+      {
+        path: "/faculty-home",
+        element: <FacultySidebar />,
+        children: [
+          {
+            path: "",
+            element: <Dashboard/>,
+          },
+          {
+            path: "event",
+            element: <CreateEvent/>,
+          },
+          {
+            path: "member",
+            element: <Member/>,
+          },
+          {
+            path: "profile",
+            element: <Profile/>,
           },
         ],
       },
